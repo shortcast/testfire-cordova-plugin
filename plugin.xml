@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin xmlns='http://apache.org/cordova/ns/plugins/1.0' id='io.testfire.cordova-plugin' version='1.0.0'>
+  <name>
+     TestFire Plugin
+  </name>
+  <description>
+     Testfire SDK plugin for Cordova
+  </description>
+  <license>
+     Commercial
+  </license>
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+  </engines>
+  <js-module src='www/testfire.js' name='Testfire'>
+    <clobbers target='Testfire'/>
+  </js-module>
+  <access origin='*.testfire.io'/>
+  <access origin='*.amazonaws.com'/>
+
+  <!-- ios -->
+  <platform name='ios'>
+    <config-file target='config.xml' parent='/*'>
+      <feature name='Testfire'>
+        <param name='ios-package' value='TestfirePlugin'/>
+      </feature>
+    </config-file>
+    <header-file src='src/ios/TestfirePlugin.h'/>
+    <source-file src='src/ios/TestfirePlugin.m'/>
+    <framework src='Accelerate.framework'/>
+    <framework src='AVFoundation.framework'/>
+    <framework src='CoreGraphics.framework'/>
+    <framework src='CoreMedia.framework'/>
+    <framework src='CoreTelephony.framework'/>
+    <framework src='CoreVideo.framework'/>
+    <framework src='Foundation.framework'/>
+    <framework src='MobileCoreServices.framework'/>
+    <framework src='QuartzCore.framework'/>
+    <framework src='Security.framework'/>
+    <framework src='OpenGLES.framework'/>
+    <framework src='SystemConfiguration.framework'/>
+    <framework src='UIKit.framework'/>
+    <header-file src='src/ios/vendor/Headers/Testfire.h'/>
+    <header-file src='src/ios/vendor/Headers/TestfireParams.h'/>
+    <framework src='Foundation.framework' autogen='true'/>
+    <resource-file src='src/ios/vendor/Resources/Testfire.bundle'/>
+    <source-file framework='true' src='src/ios/vendor/libTestfire.a'/>
+  </platform>
+
+  <!-- android -->
+  <platform name='android'>
+    <!-- declare implementation of TestfirePlugin -->
+    <source-file src="src/android/TestfirePlugin.java" target-dir="src/io/testfire/cordova" />
+
+    <!-- copy build extras, necessary for Testfire.aar -->
+    <source-file src="src/android/vendor/build-extras.gradle" target-dir="." />
+
+    <!-- add permissions and requirements -->
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    </config-file>
+
+    <!-- copy testfire sdk -->
+    <source-file src="src/android/vendor/Testfire.aar" target-dir="libs/" />
+
+    <!-- adds TestfirePlugin in project's config.xml -->
+    <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="Testfire">
+            <param name="android-package" value="io.testfire.cordova.TestfirePlugin"/>
+        </feature>
+    </config-file>
+  </platform>
+</plugin>

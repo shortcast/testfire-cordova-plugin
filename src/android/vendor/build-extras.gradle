@@ -1,0 +1,9 @@
+dependencies {
+    compile (name: 'Testfire', ext:'aar')
+}
+
+repositories {
+    flatDir{
+        dirs 'libs'
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "io.testfire.cordova-plugin",
+  "version": "1.0.0",
+  "description": "Testfire plugin for Cordova",
+  "cordova": {
+    "id": "io.testfire.cordova-plugin",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/testfairy/testfire-cordova-plugin"
+  },
+  "keywords": [
+    "cordova",
+    "cordova-ios",
+    "testfire"
+  ],
+  "author": "Testfire",
+  "license": "Commercial",
+  "bugs": {
+    "url": "https://github.com/testfire/testfire-cordova-plugin/issues"
+  },
+  "homepage": "https://github.com/testfire/testfire-cordova-plugin"
+}
