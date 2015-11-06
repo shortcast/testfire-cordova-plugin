@@ -57,6 +57,13 @@
       };
       [self setParamValue: @"gesture" enums:GESTURE options:options params:params];
 
+
+      NSDictionary *AUTH = @{
+        @"none" : @(TestfireAuthNone),
+        @"email" : @(TestfireAuthEmail)
+      };
+      [self setParamValue: @"auth" enums:AUTH options:options params:params];
+
       NSDictionary *MODE = @{
         @"feedback" : @(TestfireModeFeedback)
       };

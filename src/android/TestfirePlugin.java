@@ -97,6 +97,11 @@ public class TestfirePlugin extends CordovaPlugin {
       params.setGesture(gesture);
     }
 
+    TestfireParamAuth auth = getMappedEnum(TestfireParamAuth.class, TestfireParamAuth.values(), options.optString("auth"));
+    if (auth != null) {
+      params.setAuth(auth);
+    }
+
     TestfireParamVideoQuality videoQuality = getMappedEnum(TestfireParamVideoQuality.class, TestfireParamVideoQuality.values(), options.optString("videoQuality"));
     if (videoQuality != null) {
       params.setVideoQuality(videoQuality);

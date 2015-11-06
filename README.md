@@ -33,6 +33,7 @@ onDeviceReady: function() {
 ### Other Options
 
  * `gesture` - shake, swipe, disabled for ios, and shake, notification, disabled for android
+ * `auth` - none, email
  * `videoQuality` - highest, high, medium, low, lowest
  * `passwordMode` - visible, hidden
  * `locationTracking` - enabled, disabled
